@@ -129,11 +129,12 @@ if __name__=="__main__":
     adata.obs["read_id"]=seq_ids
     adata.obs["sample"]=sample_ids
     # Normalize each read to the same total count. This reduces the effect of different read lengths.
-    sc.pp.normalize_total( #rescales each read to the same total k-mer count.
+    sc.pp.normalize_total(
         adata,
         target_sum=1e4
     )
-    # Log-transform values to reduce dominance of extremely abundant k-mers. The log transformation only affects the clustering step.
+
+    # Log-transform values to reduce dominance of extremely abundant k-mers.
     sc.pp.log1p(adata)
 
     # PCA reduces 16384 dimensions into 30 principal components. These components capture the major variation among reads.
@@ -162,19 +163,48 @@ if __name__=="__main__":
         .astype(str)
         .astype("category")
     )
+
     # Preserve numerical cluster ordering.
     adata.obs["cluster"]=(
         adata.obs["cluster"]
         .cat
         .as_ordered()
     )
+
     # Print number of reads assigned to each cluster.
     print("\nCluster sizes:")
     print(
         adata.obs["cluster"]
         .value_counts()
     )
+
     # Save complete clustering object.
     # This file contains k-mer matrix; PCA coordinates; neighbor graph; Leiden clusters; sample metadata and is loaded by Code 2 for downstream analysis.
+    adata.write("adata_clusters.h5ad")
+    print("\nFinished clustering.")
+    
+    print("\nCluster sizes:")
+    print(
+        adata.obs["cluster"]
+        .value_counts()
+    )
+
+    # Filter out clusters with less than 1% of total reads.
+    cluster_counts = adata.obs["cluster"].value_counts()
+    min_reads = 0.01 * adata.n_obs
+
+    clusters_to_keep = cluster_counts[cluster_counts >= min_reads].index
+
+    print("\nKeeping clusters with >=1% of reads:")
+    print(cluster_counts.loc[clusters_to_keep])
+
+    print("\nRemoving clusters with <1% of reads:")
+    print(cluster_counts[cluster_counts < min_reads])
+
+    adata = adata[adata.obs["cluster"].isin(clusters_to_keep)].copy()
+    adata.obs["cluster"] = adata.obs["cluster"].cat.remove_unused_categories()
+
+    print(f"\nReads remaining after filtering: {adata.n_obs}")
+
     adata.write("adata_clusters.h5ad")
     print("\nFinished clustering.")
