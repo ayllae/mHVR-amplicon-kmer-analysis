@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Cluster minicircle hypervariable region amplicon read sequences based on their kmer frequency composition. 
+# Part I: Cluster minicircle hypervariable region amplicon read sequences based on their kmer frequency composition. 
 
 #Steps: 
 # I. Convert each read into a vector containing the frequency of every possible DNA k-mer;
