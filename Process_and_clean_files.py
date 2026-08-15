@@ -1,5 +1,5 @@
 # This script: Searches a folder for all .fastq files; Reads sequences from each FASTQ file
-#Filters reads by sequence length (keeps only reads between 180 and 400 bp);
+#Filters reads by sequence length (keeps only reads between 200 and 500 bp);
 #Renames all reads into a standardized format: sampleName_Read1, sampleName_Read2, etc.;
 #Merges all filtered reads from all samples into a single FASTA output file
 #Prints how many reads were kept and filtered for each sample.
@@ -15,10 +15,10 @@ input_dir = "Raw_fastq_renamed_dogs"
 output_fasta = "all_sequences.fasta"
 
 # minimum read size allowed
-min_length = 150
+min_length = 200
 
 # maximum read size allowed
-max_length = 400
+max_length = 500
 
 
 def seq_dir_to_fasta():
