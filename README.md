@@ -23,15 +23,3 @@ Cluster frequencies per sample → Bray-Curtis distance matrix
 Within-dog distance analysis
 ```
 
-## References
-
-Traag VA, Waltman L, van Eck NJ. From Louvain to Leiden: guaranteeing well-connected communities. *Scientific Reports*. 2019;9:5233.
-
-Wolf FA, Angerer P, Theis FJ. SCANPY: large-scale single-cell gene expression data analysis. *Genome Biology*. 2018;19:15.
-
-## Author
-Aylla S. K. von Ermland
-
-Tarleton Lab
-
-University of Georgia
