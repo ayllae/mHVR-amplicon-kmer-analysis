@@ -1,8 +1,8 @@
 # *Trypanosoma cruzi* minicircle hypervariable region (mHVR) sequence analysis pipeline
 
-This repository contains the pipeline used to compare *Trypanosoma cruzi* kDNA mHVR amplicon samples based on k-mer composition. The main idea is to represent each read by its 7-mer composition, cluster reads with similar composition, and then compare samples based on the frequency of those clusters. 
+This repository contains the pipeline used to compare *Trypanosoma cruzi* kDNA mHVR amplicon samples based on k-mer composition. The main idea is to represent each read by its 7-mer composition, cluster reads with similar composition, and then compare samples based on the frequency of those clusters. The purpose of this pipeline was to investigate changes in *T. cruzi* parasite populations within the same host over time, with the goal of identifying potential reinfection events in naturally infected animals. mHVR amplicons were generated directly from host blood DNA, allowing parasite population diversity to be assessed without prior parasite isolation or culture. Although the pipeline was developed and tested using DNA extracted directly from blood, it could also be applied to DNA obtained from cultured parasites, such as epimastigotes from hemocultures.
 
-Deep amplicon sequencing were performed using Oxford Nanopore sequencing of pooled PCR products targeting mHVR amplicons of multiple sizes. A target depth of approximately 6,000 reads per sample is recommended, although the pipeline also performs well with as few as 3,000 reads per sample. The pipeline has not yet been validated for other amplicon sequencing chemistries, such as Illumina.
+Deep amplicon sequencing were performed using Oxford Nanopore of pooled PCR products targeting mHVR amplicons of multiple sizes. A target depth of at least 6,000 reads per sample is recommended, although the pipeline also performs well with as few as 3,000 reads per sample. The pipeline has not yet been validated for other amplicon sequencing chemistries such as Illumina.
 
 Steps:
 1. Filter reads by length (200–500 bp)
