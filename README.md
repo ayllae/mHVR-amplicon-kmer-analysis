@@ -4,17 +4,6 @@ This repository contains the pipeline used to compare *Trypanosoma cruzi* kDNA m
 
 Deep amplicon sequencing were performed using Oxford Nanopore of pooled PCR products targeting mHVR amplicons of multiple sizes. A target depth of at least 6,000 reads per sample is recommended, although the pipeline also performs well with as few as 3,000 reads per sample. The pipeline has not yet been validated for other amplicon sequencing chemistries such as Illumina.
 
-Steps:
-1. Filter reads by length (200–500 bp)
-2. Convert each read into a 7-mer frequency vector
-3. Normalize k-mer counts and apply `log(1+x)`
-4. Perform PCA
-5. Build a nearest-neighbor graph and run Leiden clustering
-6. Calculate the frequency of each cluster in each sample
-7. Calculate Bray-Curtis distances between samples
-
-UMAP is used to visualize the read clusters.
-
 ```text
 Raw sequencing files
         ↓
