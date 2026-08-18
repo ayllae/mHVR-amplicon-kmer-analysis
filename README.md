@@ -1,4 +1,4 @@
-# *Trypanosoma cruzi* Minicircle Hypervariable Region (mHVR) Sequence Analysis Pipeline
+# *Trypanosoma cruzi* minicircle hypervariable region (mHVR) sequence analysis pipeline
 
 This repository contains the pipeline used to compare *Trypanosoma cruzi* kDNA mHVR amplicon samples based on k-mer composition. The main idea is to represent each read by its 7-mer composition, cluster reads with similar composition, and then compare samples based on the frequency of those clusters. 
 
@@ -42,5 +42,7 @@ Wolf FA, Angerer P, Theis FJ. SCANPY: large-scale single-cell gene expression da
 
 ## Author
 Aylla S. K. von Ermland
+
 Tarleton Lab
+
 University of Georgia
