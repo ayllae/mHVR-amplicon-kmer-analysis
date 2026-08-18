@@ -22,10 +22,15 @@ Cluster frequencies per sample → Bray-Curtis distance matrix
 04_Within_dog_analysis.r
 Within-dog distance analysis
 ```
-Packages required: 
+
+**Packages required:** 
 
 Python 3.10.19
+
 Scanpy 1.11.5
+
 leidenalg 0.11.0
+
 umap-learn 0.5.11
+
 scikit-learn 1.7.2
